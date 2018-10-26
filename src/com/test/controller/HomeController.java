@@ -2,14 +2,12 @@ package com.test.controller;
 
 import com.test.entity.Person;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -49,10 +47,26 @@ public class HomeController {
         return "register";
     }
 
-    @RequestMapping(path = "dealRegister", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(path = {"/dealRegister"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String registerSuccess(@Valid Person person, Errors errors) {
         if (errors.hasErrors()) {
             return "register";
+        }
+        System.out.println(person);
+        return "success";
+    }
+    @RequestMapping(path = "/springTag", method = {RequestMethod.GET, RequestMethod.POST})
+    public String getSpringReg(Model model) {
+        Person person = new Person();
+        person.setName("哇哈哈00");
+        model.addAttribute(person);
+        return "springTag";
+    }
+
+    @RequestMapping(path = {"/dealReg"}, method = {RequestMethod.GET, RequestMethod.POST})
+    public String registSpring(@Valid Person person, Errors errors) {
+        if (errors.hasErrors()) {
+            return "springTag";
         }
         System.out.println(person);
         return "success";

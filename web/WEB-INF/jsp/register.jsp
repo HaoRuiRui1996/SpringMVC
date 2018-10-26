@@ -20,7 +20,6 @@
 <body>
 <div class="htmleaf-container">
     <header class="htmleaf-header">
-        <h1>模态窗口样式的用户注册UI界面设计 <span>A Sign Up Modal Design</span></h1>
         <div class="htmleaf-links">
             <a class="htmleaf-icon icon-htmleaf-home-outline" href="" title="jQuery之家" target="_blank"><span>主页</span></a>
             <a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
@@ -30,10 +29,10 @@
     <div class="modal">
         <div class="form" >
             <form action="dealRegister" method="post">
-                <label for="name" required="required">昵　称</label>
-                <input id="name" type="text" name="name"/>
-                <label for="email" required="required">电子邮件</label>
-                <input id="email" type="email" name="email"/>
+                <label for="name" >昵　称</label>
+                <input id="name" type="text" name="name" required="required"/>
+                <label for="email"  >电子邮件</label>
+                <input id="email" type="email" name="email" required="required"/>
                 <label for="pass">密　码</label>
                 <input id="pass" type="password" name="password" required="required"/>
                 <button type="submit">注　册</button>
