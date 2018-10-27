@@ -28,13 +28,15 @@
     <div class="open">Open Modal</div>
     <div class="modal">
         <div class="form" >
-            <form action="dealRegister" method="post">
+            <form action="dealRegister" method="post" enctype="multipart/form-data">
                 <label for="name" >昵　称</label>
                 <input id="name" type="text" name="name" required="required"/>
                 <label for="email"  >电子邮件</label>
                 <input id="email" type="email" name="email" required="required"/>
                 <label for="pass">密　码</label>
                 <input id="pass" type="password" name="password" required="required"/>
+                <label >图 片</label>
+                <input type="file" name="profilePicture" accept="image/jpeg,image/png,image/gif">
                 <button type="submit">注　册</button>
             </form>
         </div>

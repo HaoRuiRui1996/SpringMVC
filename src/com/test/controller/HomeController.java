@@ -4,12 +4,16 @@ import com.test.entity.Person;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,7 @@ import java.util.List;
 public class HomeController {
 
     private Logger logger = Logger.getLogger(HomeController.class);
+    private static final String LOCATION = "Q:/upload/";
 
     @RequestMapping(path = "/aa", method = RequestMethod.GET)
     public String home() {
@@ -48,9 +53,25 @@ public class HomeController {
     }
 
     @RequestMapping(path = {"/dealRegister"}, method = {RequestMethod.GET, RequestMethod.POST})
-    public String registerSuccess(@Valid Person person, Errors errors) {
+    public String registerSuccess(@Valid Person person,
+                                  Errors errors) {
+        //@RequestParam("profilePicture") MultipartFile profilePicture,
+
+        //@RequestPart("profilePicture") byte[] profilePicture,
+        //将数据存在byte数组，若没有上传文件，数组是空的
         if (errors.hasErrors()) {
             return "register";
+        }
+        //person.setProfilePicture(profilePicture);
+        MultipartFile file = person.getProfilePicture();
+        System.out.println(file.getName());
+        System.out.println(file.getContentType());
+        System.out.println(file.getOriginalFilename());
+            try {
+            FileCopyUtils.copy(file.getBytes(),
+                    new File(LOCATION + "/" + file.getOriginalFilename()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         System.out.println(person);
         return "success";
