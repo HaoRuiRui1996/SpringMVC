@@ -6,12 +6,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Null;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,12 +52,16 @@ public class HomeController {
 
     @RequestMapping(path = "/register", method = RequestMethod.GET)
     public String register() {
+        if (true) {
+            System.out.println("thorw NullPointerException");
+            throw new NullPointerException();
+        }
         return "register";
     }
 
     @RequestMapping(path = {"/dealRegister"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String registerSuccess(@Valid Person person,
-                                  Errors errors) {
+                                  Errors errors, RedirectAttributes model) {
         //@RequestParam("profilePicture") MultipartFile profilePicture,
 
         //@RequestPart("profilePicture") byte[] profilePicture,
@@ -73,9 +80,23 @@ public class HomeController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        model.addAttribute("userName", person.getName());
+        model.addAttribute("password", person.getPassword());
+        model.addFlashAttribute("person", person);
         System.out.println(person);
+        return "redirect:success/{userName}";
+    }
+
+    @RequestMapping(path = "/success/*", method = RequestMethod.GET)
+    public String success(@RequestParam String password, RedirectAttributes model) {
+        System.out.println(password);
+        model.addAttribute("password", password);
+        if (model.containsAttribute("person")) {
+            logger.info("perosn:---" + model.getFlashAttributes().get("perosn"));
+        }
         return "success";
     }
+
     @RequestMapping(path = "/springTag", method = {RequestMethod.GET, RequestMethod.POST})
     public String getSpringReg(Model model) {
         Person person = new Person();
@@ -91,5 +112,10 @@ public class HomeController {
         }
         System.out.println(person);
         return "success";
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public String handleNullPointerException() {
+        return "register";
     }
 }
