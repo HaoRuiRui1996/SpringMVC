@@ -20,10 +20,7 @@
 <body>
 <div class="htmleaf-container">
     <header class="htmleaf-header">
-<<<<<<< HEAD
-        <h1>模态窗口样式的用户注册UI界面设计 <span>A Sign Up Modal Design</span></h1>
-=======
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
+
         <div class="htmleaf-links">
             <a class="htmleaf-icon icon-htmleaf-home-outline" href="" title="jQuery之家" target="_blank"><span>主页</span></a>
             <a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
@@ -32,15 +29,6 @@
     <div class="open">Open Modal</div>
     <div class="modal">
         <div class="form" >
-<<<<<<< HEAD
-            <form action="dealRegister" method="post">
-                <label for="name" required="required">昵　称</label>
-                <input id="name" type="text" name="name"/>
-                <label for="email" required="required">电子邮件</label>
-                <input id="email" type="email" name="email"/>
-                <label for="pass">密　码</label>
-                <input id="pass" type="password" name="password" required="required"/>
-=======
             <form action="dealRegister" method="post" enctype="multipart/form-data">
                 <label for="name" >昵　称</label>
                 <input id="name" type="text" name="name" required="required"/>
@@ -50,7 +38,6 @@
                 <input id="pass" type="password" name="password" required="required"/>
                 <label >图 片</label>
                 <input type="file" name="profilePicture" accept="image/jpeg,image/png,image/gif">
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
                 <button type="submit">注　册</button>
             </form>
         </div>

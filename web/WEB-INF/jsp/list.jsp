@@ -11,10 +11,7 @@
 
 <head>
     <title>人员列表</title>
-<<<<<<< HEAD
-=======
     <meta charset="utf-8">
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
     <style>
         .table4_10 table {
             width:100%;

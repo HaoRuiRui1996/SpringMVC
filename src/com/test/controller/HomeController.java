@@ -2,30 +2,18 @@ package com.test.controller;
 
 import com.test.entity.Person;
 import org.apache.log4j.Logger;
-<<<<<<< HEAD
-import org.apache.log4j.spi.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-=======
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
-=======
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,21 +21,14 @@ import java.util.List;
 public class HomeController {
 
     private Logger logger = Logger.getLogger(HomeController.class);
-<<<<<<< HEAD
-=======
     private static final String LOCATION = "Q:/upload/";
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
 
     @RequestMapping(path = "/aa", method = RequestMethod.GET)
     public String home() {
         return "home";
     }
 
-<<<<<<< HEAD
-    @RequestMapping(path = "/ist", method = RequestMethod.GET)
-=======
     @RequestMapping(path = "/list", method = RequestMethod.GET)
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
     public String getList(Model model) {
         logger.info("---getList()---");
         List<Person> persons = new ArrayList<>();
@@ -71,13 +52,6 @@ public class HomeController {
         return "register";
     }
 
-<<<<<<< HEAD
-    @RequestMapping(path = "dealRegister", method = {RequestMethod.GET, RequestMethod.POST})
-    public String registerSuccess(@Valid Person person, Errors errors) {
-        if (errors.hasErrors()) {
-            return "register";
-        }
-=======
     @RequestMapping(path = {"/dealRegister"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String registerSuccess(@Valid Person person,
                                   Errors errors) {
@@ -115,7 +89,6 @@ public class HomeController {
         if (errors.hasErrors()) {
             return "springTag";
         }
->>>>>>> 7a442adbbd30ba23a1afa68c1b69ff932b08ef0f
         System.out.println(person);
         return "success";
     }
