@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import javax.sql.DataSource;
+
 @Configuration
 @ComponentScan(basePackages = {"com.test.config"},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,

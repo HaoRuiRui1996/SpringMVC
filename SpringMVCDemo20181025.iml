@@ -41,5 +41,9 @@
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="org.hibernate:hibernate-validator:5.2.4.Final" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="org.springframework.security:spring-security-config:4.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="org.springframework.security:spring-security-web:4.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.30" level="project" />
   </component>
 </module>
