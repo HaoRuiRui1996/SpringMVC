@@ -6,7 +6,7 @@ public class CustomEncoder implements PasswordEncoder {
     @Override
     public String encode(CharSequence charSequence) {
         System.out.println(charSequence);
-        return charSequence.toString();
+        return "success";
     }
 
     @Override
